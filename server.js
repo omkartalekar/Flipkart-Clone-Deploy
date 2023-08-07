@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import path from "path";
+import { fileURLToPath } from "url";
 // (node:15846) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. (Use `node --trace-deprecation ...` to show where the warning was created)
 //Mongoose is now at v5.4.13. Per their docs, these are the fixes for the deprecation warnings...
 mongoose.set('useNewUrlParser', true);
@@ -28,6 +29,10 @@ const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
 DefaultData()
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
 app.use(express.static(path.join(__dirname, "./client/build")));
 
 
