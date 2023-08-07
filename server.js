@@ -14,7 +14,7 @@ mongoose.set('useCreateIndex', true);
 
 import Connection from './database/db.js';
 import Routes from './routes/route.js';
-import DefaultData from './default.js';
+import DefaultData from "./default.js";
 
 
 
