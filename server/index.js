@@ -28,13 +28,13 @@ const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
 DefaultData()
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 
 Connection(username, password);
 
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
