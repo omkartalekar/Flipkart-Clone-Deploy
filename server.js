@@ -3,8 +3,8 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);// (node:15846) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. (Use `node --trace-deprecation ...` to show where the warning was created)
+import path from "path";
+// (node:15846) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. (Use `node --trace-deprecation ...` to show where the warning was created)
 //Mongoose is now at v5.4.13. Per their docs, these are the fixes for the deprecation warnings...
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
