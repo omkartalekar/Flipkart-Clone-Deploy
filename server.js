@@ -16,8 +16,9 @@ import Connection from './database/db.js';
 import Routes from './routes/route.js';
 import DefaultData from "./default.js";
 
+const __filename = fileURLToPath(import.meta.url);
 
-
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -28,19 +29,16 @@ const PORT = 8000;
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
-DefaultData()
-const __filename = fileURLToPath(import.meta.url);
-
-const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "./client/build")));
-
 
 Connection(username, password);
 
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
+
+DefaultData();
 
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
 
