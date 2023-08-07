@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "scripts": {
+ "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",                                                                                                                                                                   
-    "server": "nodemon server.js",
+    "start": "node server.js",
+    "server": "nodemon serevr.js",
     "client": "npm start --prefix ./client ",
-     "dev": "concurrently \"npm start\" \"npm run client\""
+    "dev": "concurrently \"npm start\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
