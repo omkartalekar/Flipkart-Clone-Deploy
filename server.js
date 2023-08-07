@@ -19,27 +19,28 @@ const PORT = 8000;
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
-// Insert default data into the database
-DefaultData();
-
-// Set up Express middleware
-app.use(express.static(path.join(__dirname, "./client/build")));
-app.use(bodyParser.json({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
-
 // Connect to the database
 Connection(username, password);
 
-// Set up API routes
-app.use("/", Routes);
-
-
+// Insert default data into the database
+DefaultData();
 
 // Serve React app
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+// Set up API routes
+app.use("/", Routes);
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+
+
+
+
+
 
 // Start the server
 app.listen(PORT, () =>
