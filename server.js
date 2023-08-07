@@ -31,13 +31,13 @@ Connection(username, password);
 // Set up API routes
 app.use("/", Routes);
 
+// Insert default data into the database
+DefaultData();
+
 // Serve React app
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-// Load default data (if needed)
-DefaultData();
 
 // Start the server
 app.listen(PORT, () =>
