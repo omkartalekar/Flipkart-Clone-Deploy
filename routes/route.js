@@ -9,21 +9,25 @@ import { paymentResponse } from '../controller/payment-controller.js';
 
 const router = express.Router();
 
-//login & signup
-router.post('/signup', userSignUp);
-router.post('/login', userLogIn);
+const baseApiUrl = "https://flipkart-clone-kcxs.onrender.com";
 
-router.get('/products', getProducts);
-router.get('/product/:id', getProductById);
+// Login & signup
+router.post(`${baseApiUrl}/signup`, userSignUp);
+router.post(`${baseApiUrl}/login`, userLogIn);
 
-router.post('/cart/add', addItemInCart);
+router.get(`${baseApiUrl}/products`, getProducts);
+router.get(`${baseApiUrl}/product/:id`, getProductById);
 
-router.get('/get-razorpay-key', (req, res) => {
-    res.send({ key: process.env.RAZORPAY_KEY_ID });
+router.post(`${baseApiUrl}/cart/add`, addItemInCart);
+
+router.get(`${baseApiUrl}/get-razorpay-key`, (req, res) => {
+  res.send({
+    key: process.env.RAZORPAY_KEY_ID,
   });
-  
-router.post("/create-order", createOrder);
-router.post('/pay-order', payOrder);
-router.get('/pay-res', paymentResponse);
+});
+
+router.post(`${baseApiUrl}/create-order`, createOrder);
+router.post(`${baseApiUrl}/pay-order`, payOrder);
+router.get(`${baseApiUrl}/pay-res`, paymentResponse);
 
 export default router;
