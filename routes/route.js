@@ -11,11 +11,12 @@ const router = express.Router();
 
 const baseApiUrl = "https://flipkart-clone-kcxs.onrender.com";
 
+
 // Login & signup
 router.post(`${baseApiUrl}/signup`, userSignUp);
 router.post(`${baseApiUrl}/login`, userLogIn);
 
-router.get(`${baseApiUrl}/products`, getProducts);
+router.get(`${baseApiUrl}/maxKxnlnxnxxkproducts`, getProducts);
 router.get(`${baseApiUrl}/product/:id`, getProductById);
 
 router.post(`${baseApiUrl}/cart/add`, addItemInCart);
